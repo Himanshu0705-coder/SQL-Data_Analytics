@@ -35,3 +35,13 @@ with new_data as
 from employee)
 select * from new_data
 where rnk = 2;
+
+
+with new_data as 
+(select first_name,
+        last_name,
+        department,
+        ROW_NUMBER() over (order by salary desc) as rnk
+from employee)
+select * from new_data
+where rnk = 4;
