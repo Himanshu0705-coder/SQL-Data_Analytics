@@ -78,6 +78,16 @@ SELECT
 FROM employee;
 
 
+-- To calculate the difference from the previous employee's salary
+select emp_id,
+       first_name,
+       last_name,
+       department,
+       salary,
+       salary - LAG(salary) over (order by salary desc) as salary_difference
+from employee;
+
+
 
 
 select first_name, department, salary,
