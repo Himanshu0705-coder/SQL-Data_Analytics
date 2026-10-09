@@ -65,6 +65,9 @@ select * from new_data
 where rnk = 2;
 
 
+
+
+-- Compare an employee's salary with the previous employee
 SELECT
     emp_id,
     first_name,
@@ -73,6 +76,8 @@ SELECT
         ORDER BY emp_id
     ) AS previous_salary
 FROM employee;
+
+
 
 
 select first_name, department, salary,
