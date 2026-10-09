@@ -53,6 +53,28 @@ from employee) as rnk
 where highest_pay = 1 ;
 
 
+-- Find the second-highest salary
+with new_data as 
+(select first_name,
+        last_name,
+        department,
+        salary,
+        Dense_rank() over (PARTITION BY department order by salary desc) as rnk
+from employee)
+select * from new_data
+where rnk = 2;
+
+
+SELECT
+    emp_id,
+    first_name,
+    salary,
+    LAG(salary) OVER (
+        ORDER BY emp_id
+    ) AS previous_salary
+FROM employee;
+
+
 select first_name, department, salary,
         Dense_Rank() over (partition by department order by salary desc)
 from employee;
