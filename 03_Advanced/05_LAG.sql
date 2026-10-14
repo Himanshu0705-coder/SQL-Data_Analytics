@@ -43,3 +43,4 @@ select first_name,
         department,
         LAG(department) over (PARTITION BY department) as rnk
 from employee;
+
