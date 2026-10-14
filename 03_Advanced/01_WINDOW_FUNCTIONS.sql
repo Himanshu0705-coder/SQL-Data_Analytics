@@ -90,6 +90,7 @@ from employee;
 
 
 
+
 select first_name, department, salary,
         Dense_Rank() over (partition by department order by salary desc)
 from employee;
