@@ -23,3 +23,4 @@ select first_name,
         salary,
         LEAD(salary) over (PARTITION BY department order by salary desc)
 from employee;
+
